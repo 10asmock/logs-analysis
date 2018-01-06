@@ -20,7 +20,7 @@ discover most popular articles, authors, and request error log from a news repor
 
 - In Vagrant, run the command ```python3 newsdata.py``` to view the query.
 
-- Alternatively, you can access ```newsdata.sql``` by entering ```-d news``` and once you're inside the ```news``` database, enter the command ```select * from topthree;``` to see the three most viewed articles of all time, ```select * from top_authors;``` for the most popular authors in descending order, and ```select * from error_log;``` to examine user request errors exceeding 1% by date and aggregated error percentage.
+- Alternatively, you can access ```newsdata.sql``` by entering ```-d news``` and once you're inside the ```news``` database, type the command ```select * from topthree;``` to see the three most viewed articles of all time, ```select * from top_authors;``` for the most popular authors in descending order, and ```select * from error_log;``` to examine user request errors exceeding 1% by date and aggregated error percentage.
 
 ## VIEWS CREATED
 
