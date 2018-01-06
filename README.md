@@ -64,6 +64,11 @@ S error_percent
 (), 1)) DESC;
 ```
 
+## TOOLS USED   
+
+- Python 3.6 editor IDLE
+- Postgresql
+
 
 
   
