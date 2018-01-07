@@ -10,7 +10,7 @@ discover most popular articles, authors, and request error log from a news repor
 
 - Download and unzip [FSND-Virtual-Machine.zip](https://d17h27t6h515a5.cloudfront.net/topher/2017/August/59822701_fsnd-virtual-machine/fsnd-virtual-machine.zip) or clone [fullstack-nanodegree-vm](https://github.com/udacity/fullstack-nanodegree-vm). This will give you a directory called *FSND-Virtual-Machine*.
 
-- Download ```newsdata.sql``` and ```newsdata.py``` from this repository and insert it into the FSND-Virtual-Machine ```vagrant``` directory.
+- Download ```newsdata.py``` from this repository and insert it into the FSND-Virtual-Machine ```vagrant``` directory.
 
 - From your terminal, inside the ```vagrant``` subdirectory, run the command ```vagrant up```. This will cause Vagrant to download the Linux operating system and install it.
 
@@ -20,7 +20,7 @@ discover most popular articles, authors, and request error log from a news repor
 
 - In Vagrant, run the command ```python3 newsdata.py``` to view the query.
 
-- Alternatively, you can access ```newsdata.sql``` by entering ```-d news``` and once you're inside the ```news``` database, type the command ```select * from topthree;``` to see the three most viewed articles of all time, ```select * from top_authors;``` for the most popular authors in descending order, and ```select * from error_log;``` to examine user request errors exceeding 1% by date and aggregated error percentage.
+- Alternatively, you can access ```newsdata.sql``` by entering ```-d news``` and once you're inside the ```news``` database, type in the code below to check out the three most viewed articles of all time, the most popular authors in descending order, and examine user request errors exceeding 1% by date and aggregated error percentage.
 
 ## VIEWS CREATED
 
