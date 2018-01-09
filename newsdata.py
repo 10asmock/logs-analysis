@@ -13,8 +13,10 @@ def top_articles():
 
     print("\nTop Three Articles:\n")
     for a in articles:
-        print (str(a[0]) + "\t" + str(a[1]) + " views")
+        print(str(a[0]) + "\t" + str(a[1]) + " views")
     db.close()
+    
+    
 top_articles()
 
 
@@ -28,8 +30,10 @@ def top_authors():
 
     print("\nMost Popular Authors:\n")
     for au in authors:
-        print (str(au[0]) + "  " + str(au[1]) + " views")
+        print(str(au[0]) + "  " + str(au[1]) + " views")
     db.close()
+    
+    
 top_authors()
 
 
@@ -42,8 +46,10 @@ def error_log():
     c.execute(query_log)
     errors = c.fetchall()
 
-    print ("\nErrors Exceeding 1% and Date:\n")
+    print("\nErrors Exceeding 1% and Date:\n")
     for e in errors:
-        print (str(e[0]) + "\t" + str(e[1]) + "% errors")
+        print(str(e[0]) + "\t" + str(e[1]) + "% errors")
     db.close()
+    
+    
 error_log()
