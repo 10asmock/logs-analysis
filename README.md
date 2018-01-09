@@ -27,6 +27,7 @@ discover most popular articles, authors, and request error log from a news repor
 - Top Three Articles
 
 ```
+CREATE VIEW topthree as
 SELECT articles.title,
     count(*) AS views
    FROM articles,
@@ -40,6 +41,7 @@ SELECT articles.title,
  - Most Popular Authors
  
  ```
+ CREATE VIEW top_authors as
  SELECT authors.name,
     count(*) AS views
    FROM articles,
@@ -54,6 +56,7 @@ cles.slug) like log.path
   - Error Log Greater Than 1%
   
   ```
+  CREATE VIEW error_log as
   SELECT to_char(log."time", 'DD Mon YYYY'::text) AS date,
     round(count(*)::numeric * 100.0 / sum(count(*)) OVER (), 1) A
 S error_percent
