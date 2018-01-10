@@ -2,6 +2,7 @@ import psycopg2
 
 DBNAME = "news"
 
+
 # !/usr/bin/env python3
 def top_articles():
     """Returns the three most viewed articles from 'news' database"""
