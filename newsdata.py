@@ -2,7 +2,7 @@ import psycopg2
 
 DBNAME = "news"
 
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 def top_articles():
     """Returns the three most viewed articles from 'news' database"""
     db = psycopg2.connect(database=DBNAME)
@@ -15,8 +15,6 @@ def top_articles():
     for a in articles:
         print(str(a[0]) + "\t" + str(a[1]) + " views")
     db.close()
-    
-    
 top_articles()
 
 
@@ -32,8 +30,6 @@ def top_authors():
     for au in authors:
         print(str(au[0]) + "  " + str(au[1]) + " views")
     db.close()
-    
-    
 top_authors()
 
 
@@ -50,6 +46,4 @@ def error_log():
     for e in errors:
         print(str(e[0]) + "\t" + str(e[1]) + "% errors")
     db.close()
-    
-    
 error_log()
