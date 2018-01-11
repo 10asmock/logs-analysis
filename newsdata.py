@@ -4,6 +4,7 @@ import psycopg2
 
 DBNAME = "news"
 
+
 def top_articles():
     """Returns the three most viewed articles from 'news' database"""
     db = psycopg2.connect(database=DBNAME)
