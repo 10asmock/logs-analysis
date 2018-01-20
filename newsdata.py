@@ -37,8 +37,8 @@ def top_authors():
     authors = c.fetchall()
 
     print("\nMost Popular Authors:\n")
-    for au in authors:
-        print(str(au[0]) + "  " + str(au[1]) + " views")
+    for title, views in authors:
+        print(title + "/t" + str(views) + " views")
     db.close()
 
 
