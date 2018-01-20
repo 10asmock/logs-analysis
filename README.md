@@ -32,7 +32,7 @@ SELECT articles.title,
     count(*) AS views
    FROM articles,
     log
-  WHERE concat('/article/', articles.slug) like log.path
+  WHERE concat('/article/', articles.slug) = log.path
   GROUP BY articles.title
   ORDER BY (count(*)) DESC
  LIMIT 3;
@@ -47,8 +47,7 @@ SELECT articles.title,
    FROM articles,
     authors,
     log
-  WHERE authors.id = articles.author AND concat('/article/', arti
-cles.slug) like log.path
+  WHERE authors.id = articles.author AND concat('/article/', articles.slug) = log.path
   GROUP BY authors.name
   ORDER BY (count(*)) DESC;
   ```
@@ -58,8 +57,7 @@ cles.slug) like log.path
   ```
   CREATE VIEW error_log as
   SELECT to_char(log."time", 'DD Mon YYYY'::text) AS date,
-    round(count(*)::numeric * 100.0 / sum(count(*)) OVER (), 1) A
-S error_percent
+    round(count(*)::numeric * 100.0 / sum(count(*)) OVER (), 1) AS error_percent
    FROM log
   WHERE log.status = '404 NOT FOUND'::text
   GROUP BY (to_char(log."time", 'DD Mon YYYY'::text))
