@@ -55,14 +55,19 @@ SELECT articles.title,
   - Error Log Greater Than 1%
   
   ```
-  CREATE VIEW error_log as
-  SELECT to_char(log."time", 'DD Mon YYYY'::text) AS date,
-    round(count(*)::numeric * 100.0 / sum(count(*)) OVER (), 1) AS error_percent
-   FROM log
-  WHERE log.status = '404 NOT FOUND'::text
-  GROUP BY (to_char(log."time", 'DD Mon YYYY'::text))
-  ORDER BY (round(count(*)::numeric * 100.0 / sum(count(*)) OVER
-(), 1)) DESC;
+ CREATE VIEW error_log as
+ SELECT to_char(totals.date, 'Mon DD, YYYY') AS date,
+    100.0 * error_views /
+    total_views as error_percentage
+ FROM
+    (select date(time) as date,
+        count(*) as total_views
+    FROM log
+    WHERE status != '200 OK'
+    GROUP BY date(time)) as errors
+ WHERE totals.date = errors.date
+    and 100.0 * error_views / total_views > 1
+ ORDER BY by totals.date;
 ```
 
 ## TOOLS USED   
