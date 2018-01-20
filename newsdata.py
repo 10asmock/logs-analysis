@@ -11,46 +11,6 @@ import psycopg2
 DBNAME = "news"
 
 
-# Top Three Articles
-
-CREATE VIEW topthree as
-SELECT articles.title,
-    count(*) AS views
-   FROM articles,
-    log
-  WHERE concat('/article/', articles.slug) like log.path
-  GROUP BY articles.title
-  ORDER BY (count(*)) DESC
- LIMIT 3;
-
-
-# Most Popular Authors
-
-CREATE VIEW top_authors as
-SELECT authors.name,
-   count(*) AS views
-  FROM articles,
-   authors,
-   log
- WHERE authors.id = articles.author AND concat('/article/', arti
-cles.slug) like log.path
- GROUP BY authors.name
- ORDER BY (count(*)) DESC;
-
-
-# Error Log Greater Than 1%
-
-CREATE VIEW error_log as
-SELECT to_char(log."time", 'DD Mon YYYY'::text) AS date,
-  round(count(*)::numeric * 100.0 / sum(count(*)) OVER (), 1) A
-S error_percent
- FROM log
-WHERE log.status = '404 NOT FOUND'::text
-GROUP BY (to_char(log."time", 'DD Mon YYYY'::text))
-ORDER BY (round(count(*)::numeric * 100.0 / sum(count(*)) OVER
-(), 1)) DESC;
-
-
 def top_articles():
     """Returns the three most viewed articles from 'news' database"""
     db = psycopg2.connect(database=DBNAME)
