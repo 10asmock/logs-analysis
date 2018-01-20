@@ -47,7 +47,8 @@ SELECT articles.title,
    FROM articles,
     authors,
     log
-  WHERE authors.id = articles.author AND concat('/article/', articles.slug) = log.path
+  WHERE authors.id = articles.author 
+  AND concat('/article/', articles.slug) = log.path
   GROUP BY authors.name
   ORDER BY (count(*)) DESC;
   ```
