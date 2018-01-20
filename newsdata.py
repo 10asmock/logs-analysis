@@ -11,13 +11,14 @@ import psycopg2
 DBNAME = "news"
 
 
-def top_articles():
+def top_articles(query_art):
     """Returns the three most viewed articles from 'news' database"""
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
     query_art = "select * from topthree;"
     c.execute(query_art)
     articles = c.fetchall()
+    return articles
 
     print("\nTop Three Articles:\n")
     for a in articles:
@@ -28,13 +29,14 @@ def top_articles():
 top_articles()
 
 
-def top_authors():
+def top_authors(query_auth):
     """Returns the most popular authors in descending order"""
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
     query_auth = "select * from top_authors;"
     c.execute(query_auth)
     authors = c.fetchall()
+    return authors
 
     print("\nMost Popular Authors:\n")
     for title, views in authors:
@@ -45,7 +47,7 @@ def top_authors():
 top_authors()
 
 
-def error_log():
+def error_log(query_log):
     """Returns an error log in which more than 1% of requests
     lead to errors"""
     db = psycopg2.connect(database=DBNAME)
@@ -53,6 +55,7 @@ def error_log():
     query_log = "select * from error_log;"
     c.execute(query_log)
     errors = c.fetchall()
+    return errors
 
     print("\nErrors Exceeding 1% and Date:\n")
     for e in errors:
