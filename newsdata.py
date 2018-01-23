@@ -8,56 +8,48 @@ Virtual Box and Git Bash."""
 
 import psycopg2
 
-DBNAME = "news"
 
-
-def top_articles(query_art):
-    """Returns the three most viewed articles from 'news' database"""
-    db = psycopg2.connect(database=DBNAME)
+def get_query_results(query):
+    db = psycopg2.connect(database="news")
     c = db.cursor()
-    query_art = "select * from topthree;"
-    c.execute(query_art)
-    articles = c.fetchall()
+    c.execute(query)
+    result = c.fetchall()
+    db.close()
+    return result
 
+
+def top_articles():
+    """Returns the three most viewed articles from 'news' database"""
+    query_art = "select * from topthree;"
+    articles = get_query_results(query_art)
     print("\nTop Three Articles:\n")
     for a in articles:
         print(str(a[0]) + "\t" + str(a[1]) + " views")
-    db.close()
 
 
 top_articles()
 
 
-def top_authors(query_auth):
+def top_authors():
     """Returns the most popular authors in descending order"""
-    db = psycopg2.connect(database=DBNAME)
-    c = db.cursor()
     query_auth = "select * from top_authors;"
-    c.execute(query_auth)
-    authors = c.fetchall()
-
+    authors = get_query_results(query_auth)
     print("\nMost Popular Authors:\n")
     for title, views in authors:
         print(title + "/t" + str(views) + " views")
-    db.close()
 
 
 top_authors()
 
 
-def error_log(query_log):
+def error_log():
     """Returns an error log in which more than 1% of requests
     lead to errors"""
-    db = psycopg2.connect(database=DBNAME)
-    c = db.cursor()
     query_log = "select * from error_log;"
-    c.execute(query_log)
-    errors = c.fetchall()
-
+    errors = get_query_results(query_log)
     print("\nErrors Exceeding 1% and Date:\n")
     for e in errors:
         print(str(e[0]) + "\t" + str(e[1]) + "% errors")
-    db.close()
 
 
 error_log()
