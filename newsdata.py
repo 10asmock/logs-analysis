@@ -18,7 +18,6 @@ def top_articles(query_art):
     query_art = "select * from topthree;"
     c.execute(query_art)
     articles = c.fetchall()
-    return articles
 
     print("\nTop Three Articles:\n")
     for a in articles:
@@ -36,7 +35,6 @@ def top_authors(query_auth):
     query_auth = "select * from top_authors;"
     c.execute(query_auth)
     authors = c.fetchall()
-    return authors
 
     print("\nMost Popular Authors:\n")
     for title, views in authors:
@@ -55,7 +53,6 @@ def error_log(query_log):
     query_log = "select * from error_log;"
     c.execute(query_log)
     errors = c.fetchall()
-    return errors
 
     print("\nErrors Exceeding 1% and Date:\n")
     for e in errors:
