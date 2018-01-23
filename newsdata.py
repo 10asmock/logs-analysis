@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
 """An internal reporting tool which uses stored information as views
-on a database to discover most popular articles, authors, and an error 
+on a database to discover most popular articles, authors, and an error
 log from a news site.
 
-The tools used to build this program is PostgreSQL, Python 3.6 IDLE on 
+The tools used to build this program is PostgreSQL, Python 3.6 IDLE on
 Virtual Box and Git Bash."""
 
 import psycopg2
