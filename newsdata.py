@@ -36,7 +36,7 @@ def top_authors():
     authors = get_query_results(query_auth)
     print("\nMost Popular Authors:\n")
     for title, views in authors:
-        print(title + "/t" + str(views) + " views")
+        print(title + "\t" + str(views) + " views")
 
 
 top_authors()
