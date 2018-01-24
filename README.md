@@ -59,16 +59,20 @@ SELECT articles.title,
  CREATE VIEW error_log as
  SELECT to_char(totals.date, 'Mon DD, YYYY') AS date,
     100.0 * error_views /
-    total_views as error_percentage
+        total_views as error_percentage
  FROM
     (select date(time) as date,
         count(*) as total_views
+    FROM log
+    GROUP BY date(time)) as totals,
+    (select date(time) as date,
+        count(*) as error_views
     FROM log
     WHERE status != '200 OK'
     GROUP BY date(time)) as errors
  WHERE totals.date = errors.date
     and 100.0 * error_views / total_views > 1
- ORDER BY by totals.date;
+ ORDER BY totals.date;
 ```
 
 ## TOOLS USED   
