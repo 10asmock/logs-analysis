@@ -13,34 +13,4 @@ Markoff Chaney  84557 views
 
 Errors Exceeding 1% and Date:
 
-17 Jul 2016     9.8% errors
-19 Jul 2016     3.4% errors
-05 Jul 2016     3.3% errors
-24 Jul 2016     3.3% errors
-06 Jul 2016     3.3% errors
-15 Jul 2016     3.2% errors
-08 Jul 2016     3.2% errors
-21 Jul 2016     3.2% errors
-09 Jul 2016     3.2% errors
-22 Jul 2016     3.1% errors
-30 Jul 2016     3.1% errors
-26 Jul 2016     3.1% errors
-03 Jul 2016     3.1% errors
-11 Jul 2016     3.1% errors
-25 Jul 2016     3.0% errors
-02 Jul 2016     3.0% errors
-29 Jul 2016     3.0% errors
-28 Jul 2016     3.0% errors
-13 Jul 2016     3.0% errors
-14 Jul 2016     3.0% errors
-20 Jul 2016     3.0% errors
-23 Jul 2016     2.9% errors
-10 Jul 2016     2.9% errors
-16 Jul 2016     2.9% errors
-04 Jul 2016     2.9% errors
-12 Jul 2016     2.9% errors
-18 Jul 2016     2.9% errors
-27 Jul 2016     2.8% errors
-07 Jul 2016     2.8% errors
-31 Jul 2016     2.5% errors
-01 Jul 2016     2.1% errors
+Jul 17, 2016  2.2626862468027260% errors
